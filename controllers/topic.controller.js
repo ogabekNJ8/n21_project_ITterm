@@ -4,11 +4,12 @@ const { topicValidation } = require("../validation/topic.validation");
 
 const addTopic = async (req, res) => {
   try {
-    const { error, value } = topicValidation(req.body);
-    if (error) {
-      return sendErrorresponse(error, res);
-    }
-    const newTopic = await Topic(value);
+    // const { error, value } = topicValidation(req.body);
+    // if (error) {
+    //   return sendErrorresponse(error, res);
+    // }
+    const newTopic = await Topic(req.body);
+    await newTopic.save();
     res.status(201).send({ message: "New Topic added", newTopic });
   } catch (error) {
     sendErrorresponse(error, res);
@@ -17,7 +18,7 @@ const addTopic = async (req, res) => {
 
 const findAll = async (req, res) => {
   try {
-    const data = await Topic.find().populate(author_id);
+    const data = await Topic.find() //.populate(author_id);
     res.status(200).send({ data: data });
   } catch (error) {
     sendErrorresponse(error, res);

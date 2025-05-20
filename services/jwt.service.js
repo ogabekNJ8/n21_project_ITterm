@@ -57,5 +57,5 @@ let userJwtService = new JwtService(
 module.exports = {
   authorJwtService,
   userJwtService,
-  adminJwtService
+  adminJwtService,
 };

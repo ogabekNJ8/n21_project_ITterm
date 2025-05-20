@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
     }
 
     // const decodedPayload = jwt.verify(token, config.get("tokenKey"));
-    const decodedPayload = await jwtService.verifyAccessToken(token)
+    const decodedPayload = await jwtService.authorJwtService.verifyAccessToken(token)
 
     // email darsidan so'ng faollashtiramiz
 

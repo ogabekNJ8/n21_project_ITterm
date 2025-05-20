@@ -1,6 +1,6 @@
 const winston = require("winston");
-const config = require("config")
-require("winston-mongodb")
+const config = require("config");
+require("winston-mongodb");
 
 const { createLogger, format, transports } = require("winston");
 const { combine, timestamp, label, printf, json, colorize } = format;
@@ -26,11 +26,14 @@ const logger = winston.createLogger({
     }),
     new winston.transports.MongoDB({
       db: config.get("dbUri"),
-      collection: "log"
-    })
+      collection: "log",
+    }),
   ],
   exceptionHandlers: [
     new winston.transports.File({ filename: "logs/exceptions.log" }),
+  ],
+  rejectionHandlers: [
+    new winston.transports.File({ filename: "logs/rejections.log" }),
   ],
 });
 

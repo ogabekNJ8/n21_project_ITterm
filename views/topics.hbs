@@ -1,0 +1,16 @@
+<h3 style="text-align: center;">Maqolalar</h3>
+
+<div class="container" style="display: flex; gap: 15px">
+  {{#each topics}}
+  <div class="card" style="width: 18rem;">
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/003/025/884/non_2x/topic-concept-with-wooden-block-on-wooden-table-background-free-photo.jpg"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <p class="card-text">{{topic_text}}</p>
+    </div>
+  </div>
+{{/each}}
+</div>
