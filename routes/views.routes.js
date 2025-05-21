@@ -18,23 +18,21 @@ router.get("/authors", (req, res) => {
 });
 
 router.get("/dictionary", async (req, res) => {
-  let dictionaries = await dictModel.find().lean();
-  console.log(dictionaries)
+  // let dictionaries = await dictModel.find().lean();
+  // console.log(dictionaries)
 
   res.render(createViewPage("dictionary"), {
     title: "Lug'atlar",
     isDict: true,
-    dictionaries,
   });
 });
 
 router.get("/topics", async (req, res) => {
-  let topics = await topicsModel.find().lean();
-  console.log(topics)
+  // let topics = await topicsModel.find().lean();
+  // console.log(topics)
   res.render(createViewPage("topics"), {
     title: "Maqolalar",
     isTopic: true,
-    topics,
   });
 });
 

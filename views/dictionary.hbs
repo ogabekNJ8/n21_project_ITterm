@@ -1,16 +1,46 @@
 <h3 style="text-align: center;">Lug'atlar</h3>
 
-<div class="container" style="display: flex; gap: 15px">
-  {{#each dictionaries}}
-  <div class="card" style="width: 18rem;">
-    <img
-      src="https://media.istockphoto.com/id/133313561/photo/book-and-glass-loupe.jpg?s=612x612&w=0&k=20&c=c_-XUrih631ObxQA5ODY5mql_1PqEgfpQJXbG-qODPY="
-      class="card-img-top"
-      alt="..."
-    />
-    <div class="card-body">
-      <p class="card-text">{{term}}</p>
-    </div>
-  </div>
-{{/each}}
-</div>
+<div class="container" style="display: flex; gap: 15px; flex-wrap: wrap;" id="dict-container"></div>
+
+<script>
+  const container = document.getElementById("dict-container");
+
+  async function getDictionaries() {
+    let accessToken = localStorage.getItem("accessToken");
+
+    try {
+      const response = await fetch("http://localhost:3333/api/dict", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-type": "application/json",
+        },
+      });
+
+      const { data } = await response.json();
+
+      let dictionaries = "";
+      data.forEach((dict) => {
+        dictionaries += `
+          <div class="card" style="width: 18rem;">
+            <img
+              src="https://d3an9kf42ylj3p.cloudfront.net/uploads/2024/03/Data-Dictionary.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">${dict.term}</h5>
+              <p class="card-text"><strong>Letter:</strong> ${dict.letter}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = dictionaries;
+    } catch (err) {
+      console.error("Xatolik:", err.message);
+    }
+  }
+
+  getDictionaries();
+</script>

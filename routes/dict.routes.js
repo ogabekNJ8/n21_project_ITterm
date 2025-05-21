@@ -11,7 +11,7 @@ const authorJwtGuard = require("../middlewares/guards/author-jwt.guard");
 
 const router = require("express").Router();
 
-router.post("/", authorJwtGuard, addDict);
+router.post("/", addDict);
 router.get("/", findAll);
 router.get("/:id", findById);
 router.get("/:letter", findByLetter);

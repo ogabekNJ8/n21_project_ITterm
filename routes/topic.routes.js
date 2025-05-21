@@ -5,6 +5,7 @@ const {
   update,
   remove,
 } = require("../controllers/topic.controller");
+const authorJwtGuard = require("../middlewares/guards/author-jwt.guard");
 
 const router = require("express").Router();
 

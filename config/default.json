@@ -4,8 +4,8 @@
 
   "access_key": "AccessTokenKeyssokdsiefdsjkffn",
   "refresh_key": "RefreshTokenKeyssokdsiefdsjkffn",
-  "access_time": "10s",
-  "refresh_time": "20s",
+  "access_time": "10h",
+  "refresh_time": "20h",
   "cookie_refresh_time": 1296000000,
 
   "adminAccess_key": "AccessTokenKeyssokdsiefdsjkffn",

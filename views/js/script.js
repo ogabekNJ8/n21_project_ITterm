@@ -1,6 +1,3 @@
-// const { response } = require("express");
-// const { error } = require("winston");
-
 function login() {
   const loginForm = document.getElementById("loginForm");
   loginForm.addEventListener("submit", async (e) => {
@@ -63,7 +60,7 @@ async function getAuthors() {
     },
   })
     .then((response) => {
-      console.log("res:", response)
+      console.log("res:", response);
       if (response.ok) {
         return response.json();
       } else {

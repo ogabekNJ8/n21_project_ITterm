@@ -48,10 +48,10 @@ let adminJwtService = new JwtService(
 );
 
 let userJwtService = new JwtService(
-  config.get("adminAccess_key"),
-  config.get("adminRefresh_key"),
-  config.get("adminAccess_time"),
-  config.get("adminRefresh_time")
+  config.get("userAccess_key"),
+  config.get("userRefresh_key"),
+  config.get("userAccess_time"),
+  config.get("userRefresh_time")
 );
 
 module.exports = {
